@@ -1,169 +1,117 @@
-# ExplorerBlurMica
-Add background Blur effect or Acrylic or Mica effect to explorer for win10 and win11
+# Mica4U
+A GUI tool to add background Blur, Acrylic, or Mica effects to Windows Explorer for Windows 10 and 11.
 
-给文件资源管理器添加背景模糊效果或Acrylic、Mica效果 适用于win10和win11
-#
-| [中文](/README_ZH.md) | [English](/README.md) | [Türkçe](/README_TR.md)
-This project uses [LGNU V3 license](/COPYING.LESSER).
+# NOTICE
+Please note that I am not liable for any damage or harm this application may cause to your system, whether during installation, usage, or any other circumstances.
 
-[![license](https://img.shields.io/github/license/Maplespe/ExplorerBlurMica.svg)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
-[![Github All Releases](https://img.shields.io/github/downloads/Maplespe/ExplorerBlurMica/total.svg)](https://github.com/Maplespe/ExplorerBlurMica/releases)
-[![GitHub release](https://img.shields.io/github/release/Maplespe/ExplorerBlurMica.svg)](https://github.com/Maplespe/ExplorerBlurMica/releases/latest)
-<img src="https://img.shields.io/badge/language-c++-F34B7D.svg"/>
-<img src="https://img.shields.io/github/last-commit/Maplespe/ExplorerBlurMica.svg"/>  
 
-## Effects
-* Blur or Acrylic, Mica effects are available.
-* Custom blend colors are available.
-* Light/Dark Mode Adaptive.
+[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/DRKCTRL/Mica4U)](https://github.com/DRKCTRL/Mica4U/releases)
+[![GitHub all releases](https://img.shields.io/github/downloads/DRKCTRL/Mica4U/total)](https://github.com/DRKCTRL/Mica4U/releases)
+[![GitHub issues](https://img.shields.io/github/issues/DRKCTRL/Mica4U)](https://github.com/DRKCTRL/Mica4U/issues)
 
-This project is for Explorer only, if you want to apply the effect globally, take a look at our other project [DWMBlurGlass](https://github.com/Maplespe/DWMBlurGlass).
+This project uses [GNU LGPL v3 license](/LICENSE).
+
+## Features
+* Multiple effects available:
+  - Acrylic
+  - Blur
+  - Blur (Clear)
+  - Mica
+  - Mica Alt
+* Customizable transparency and colors
+* Light/Dark mode presets
+* Easy-to-use graphical interface
 
 ## Compatibility
-Compatible with StartAllBack, OldNewExplorer and other software that modifies window styles.
+- Windows *10*/11
+- Compatible with StartAllBack, Rectify11, and multitudes of other software
 
-It is also compatible with third-party themes.
+## Installation
+1. Download the latest release from the [Releases](https://github.com/DRKCTRL/Mica4U/releases) page
+2. Extract the files to a permanent location (e.g., `C:\Program Files`)
+3. Run the GUI application
+4. Select your desired style and options
+5. Click "Install" (requires administrator privileges)
+6. Explorer will restart automatically to apply changes
 
-## Catalog
-- [Overview](#overview)
-- [How to use](#how-to-use)
-- [Config](#config)
-- [Other](#other)
+## Usage
+### Main Options
+- **Style**: Choose between Acrylic, Blur, Blur (Clear), Mica, or Mica Alt effects
+- **Options**:
+  - Clear Address Bar: Makes the address bar transparent
+  - Clear Toolbar: Makes the toolbar area transparent
+  - Clear Background: Makes the window background transparent
+  - Show Separator: Shows a separator line between sections
 
-## Overview
-<details><summary><b>Windows 11</b></summary>
+### Color Settings
+- Use presets (Light/Dark) or customize colors manually:
+  - Alpha: Adjust transparency
+  - Red: Adjust red component
+  - Green: Adjust green component
+  - Blue: Adjust blue component
 
-23H2 WinUI3
-```ini
-[config]
-effect=1
-clearBarBg=true
-clearAddress=true
-clearWinUIBg=true
-[light]
-r=255
-g=255
-b=255
-a=200
-....
-```
-![image](https://github.com/Maplespe/ExplorerBlurMica/blob/main/screenshot/012949.png)
+### Uninstallation
+1. Open the GUI application
+2. Click "Remove" (requires administrator privileges)
+3. Delete the program files
 
-Dark Mode
-```ini
-[config]
-effect=2
-clearBarBg=true
-clearAddress=true
-clearWinUIBg=true
-```
-![image](https://github.com/Maplespe/ExplorerBlurMica/blob/main/screenshot/013256.png)
+Note: If Explorer crashes, hold the `ESC` key while opening Explorer to bypass the effect, then uninstall the program.
 
-22H2 XamlIslands
-```ini
-[config]
-effect=1
-clearBarBg=true
-clearAddress=true
-clearWinUIBg=true
-[light]
-r=255
-g=255
-b=255
-a=200
-....
-```
-![image](https://github.com/Maplespe/ExplorerBlurMica/blob/main/screenshot/152834.png)
+## Credits
+This project builds upon [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica) by Maplespe, which provides the core functionality for applying visual effects to Windows Explorer. The additional user-friendly graphical interface is powered by PyQt6.
 
-```ini
-[config]
-effect=1
-clearBarBg=true
-clearAddress=true
-clearWinUIBg=false
-[light]
-r=255
-g=255
-b=255
-a=200
-....
-```
-![image](https://github.com/Maplespe/ExplorerBlurMica/blob/main/screenshot/152929.png)
+## Compilation
+To compile Mica4U from source, you'll need:
+- Python 3.10 or higher
+- PyQt6
+- PyInstaller
+- Inno Setup 6
 
-</details>
+### Steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DRKCTRL/Mica4U.git
+   cd Mica4U
+   ```
 
-<details><summary><b>Windows 10</b></summary>
+2. Install required Python packages:
+   ```bash
+   pip install PyQt6 pyinstaller
+   ```
 
-```ini
-[config]
-effect=1
-clearBarBg=true
-clearAddress=true
-clearWinUIBg=false
-[light]
-r=222
-g=222
-b=222
-a=200
-```
-![image](https://github.com/Maplespe/ExplorerBlurMica/blob/main/screenshot/230909.png)
+3. Download and install [Inno Setup 6](https://jrsoftware.org/isdl.php)
 
-</details>
+4. Run the build script:
+   - Double-click `build.cmd`, or
+   - Run from command line:
+     ```bash
+     build.cmd
+     ```
 
-## How to use
+The build process will:
+1. Clean previous builds (optional)
+2. Create executable using PyInstaller
+3. Create installer using Inno Setup
+4. Output files will be in:
+   - `compiled/dist/` - Standalone executable
+   - `compiled/installer/` - Windows installer
 
-### Install
-1. Download the compiled program archive from the [Release](https://github.com/Maplespe/ExplorerBlurMica/releases) page.
-2. Unzip it to a location such as "`C:\Program Files`".
-3. Run "`register.cmd`" as administrator.
-4. Reopen the Explorer window to take effect.
+### Manual Compilation
+If you prefer to compile manually:
 
-cmd: `regsvr32 "you path/ExplorerBlurMica.dll"`
+1. Build executable:
+   ```bash
+   pyinstaller compiled/Mica4U.spec
+   ```
 
-### Uninstall
-1. Run "`uninstall.cmd`" as administrator.
-2. Delete the remaining files.
+2. Create installer:
+   ```bash
+   "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "compiled\installer.iss"
+   ```
 
-cmd: `regsvr32 /u "you path/ExplorerBlurMica.dll"`
+### Troubleshooting
+- If Explorer crashes, hold the `ESC` key while opening Explorer to bypass the effect
+- Make sure all required files are in the correct locations before building
+- Check the build directory for any error logs
 
-#
-Note: If something happens that crashes Explorer, press and hold the `ESC` key to open Explorer and uninstall the program.
-
-## Config
-``` ini
-[config]
-#Effect type 0=Blur 1=Acrylic 2=Mica 3=Blur(Clear) 4=MicaAlt
-#Blur is only available until win11 22h2, Blur (Clear) is available in both win10 and win11, Mica is win11 only.
-effect=1
-#Clear the background of the address bar.
-clearAddress=true
-#Clear the background color of the scrollbar.
-#(Note: Since the system scrollbar itself has a background color that cannot be removed,
-# when this option is turned on, the scrollbar is drawn by the program and the style may be different from the system).
-clearBarBg=true
-#Remove the toolbar background color from the WinUI or XamlIslands section of Windows 11.
-clearWinUIBg=true
-#Show split line between TreeView and DUIView.
-showLine=true
-[light]
-#The system color scheme is the color in Light mode.
-#RGBA component of background blend color
-r=220
-g=220
-b=220
-a=160
-[dark]
-#The system color scheme is the color in Dark mode.
-r=0
-g=0
-b=0
-a=120
-```
-
-Save the configuration after modification and reopen the File Explorer window to take effect.
-
-## Other
-The GUI running on Python.
-Dependent on [minhook](https://github.com/m417z/minhook) and [customtkinter](https://github.com/TomSchimansky/CustomTkinter).
-
-This project is an independent component based on the code in the [MToolBox](https://winmoes.com/tools/12948.html).

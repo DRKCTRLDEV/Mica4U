@@ -1,23 +1,44 @@
-﻿################################################################################
-# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
-################################################################################
+# Build directories
+build/
+dist/
+__pycache__/
+*.py[cod]
+*$py.class
 
-/.vs/ExplorerBlurMica/FileContentIndex
-/.vs
-/ExplorerBlurMica/x64/Release
-/build/x64/Release/ExplorerBlurMica.dll
-/build/x64/Release/ExplorerBlurMica.exp
-/build/x64/Release/ExplorerBlurMica.lib
-/build/x64/Release/ExplorerBlurMica.pdb
-/ExplorerBlurMica/x64/Debug
-/build/x64/Debug
-/build/x64/Release_x64.zip
-*.cpp
-/packages
-/ExplorerBlurMica/HookHelper
-/ExplorerBlurMica/old
-/ExplorerBlurMica/Helper/DirectUIHelper.h
-/ExplorerBlurMica/dllmain.cpp
-/build/x64/Release/ExplorerBlurMica.pri
-/build/x64/Release/Microsoft.WindowsAppRuntime.Bootstrap.dll
-/screenshot/new
+# Distribution / packaging
+*.egg
+*.egg-info/
+*.manifest
+*.spec
+installer/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.vs/
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Project specific
+*.log
+*.ini
+!config.ini
+temp/
+*.tmp
+
+# Keep compiled directory and its contents
+!compiled/
+compiled/*
+!compiled/Mica4U.spec
+!compiled/installer.iss
