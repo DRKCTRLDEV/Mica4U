@@ -111,9 +111,10 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.config = Config()
+        self.colors_group = None  # Initialize the variable
+        self.preset_btns = {}     # Initialize preset buttons dictionary
         
         self.setWindowIcon(QIcon(resource_path('icon.ico')))
-        
         self.init_ui()
 
     def init_ui(self):
@@ -124,8 +125,14 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(main)
         layout = QVBoxLayout(main)
         
-        for widget in [self.create_style_group(), self.create_options_group(),
-                      self.create_preset_group(), self.create_colors_group()]:
+        # Create widgets in specific order
+        style_group = self.create_style_group()
+        options_group = self.create_options_group()
+        preset_group = self.create_preset_group()
+        self.colors_group = self.create_colors_group()  # Assign to self.colors_group
+        
+        # Add widgets to layout
+        for widget in [style_group, options_group, preset_group, self.colors_group]:
             layout.addWidget(widget)
         layout.addLayout(self.create_buttons())
 
@@ -245,20 +252,21 @@ class MainWindow(QMainWindow):
         self.config.set('light', key, value)
 
     def update_colors(self):
-        is_custom = self.preset_btns["Custom"].isChecked()
-        self.colors_group.setEnabled(is_custom)
-        
-        if not is_custom:
-            value = '255' if self.preset_btns["Light"].isChecked() else '0'
-            for section in ['light', 'dark']:
-                for key in ['r', 'g', 'b']:
-                    self.config.set(section, key, value)
-                self.config.set(section, 'a', '120')
+        if hasattr(self, 'colors_group') and self.colors_group:
+            is_custom = self.preset_btns["Custom"].isChecked()
+            self.colors_group.setEnabled(is_custom)
             
-            for key, (slider, label) in self.sliders.items():
-                val = '120' if key == 'a' else value
-                slider.setValue(int(val))
-                label.setText(val)
+            if not is_custom:
+                value = '255' if self.preset_btns["Light"].isChecked() else '0'
+                for section in ['light', 'dark']:
+                    for key in ['r', 'g', 'b']:
+                        self.config.set(section, key, value)
+                    self.config.set(section, 'a', '120')
+                
+                for key, (slider, label) in self.sliders.items():
+                    val = '120' if key == 'a' else value
+                    slider.setValue(int(val))
+                    label.setText(val)
 
     def update_window_size(self):
         self.setFixedSize(
