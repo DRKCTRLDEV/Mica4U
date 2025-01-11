@@ -3,16 +3,34 @@
 block_cipher = None
 
 a = Analysis(
-    ['..\\Mica4U.py'],
-    pathex=[],
+    ['..\\main.py'],
+    pathex=[
+        '..\\',  # Add the root directory
+        '..\\utils',
+        '..\\config',
+        '..\\gui'
+    ],
     binaries=[],
     datas=[
         ('..\\ExplorerBlurMica.dll', '.'),
         ('..\\icon.ico', '.'),
-        ('..\\config.ini', '.'),
-        ('..\\Initialise.cmd', '.')
+        ('..\\Initialise.cmd', '.'),
+        ('..\\resources', 'resources'),
+        ('..\\utils', 'utils'),
+        ('..\\config', 'config'),
+        ('..\\gui', 'gui')
     ],
-    hiddenimports=[],
+    hiddenimports=[
+        'utils',
+        'utils.logging_config',
+        'utils.system',
+        'config',
+        'config.config_manager',
+        'config.constants',
+        'gui',
+        'gui.widgets',
+        'gui.main_window'
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -44,5 +62,6 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='..\\icon.ico'
+    icon='..\\icon.ico',
+    onefile=True
 )

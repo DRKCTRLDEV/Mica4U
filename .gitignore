@@ -1,6 +1,4 @@
 # Build directories
-build/
-dist/
 __pycache__/
 *.py[cod]
 *$py.class
@@ -10,6 +8,7 @@ __pycache__/
 *.egg-info/
 *.manifest
 *.spec
+!compiled/Mica4U.spec
 installer/
 
 # Virtual Environment
