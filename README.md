@@ -1,26 +1,53 @@
-# Mica4U
-A GUI tool to add background Blur, Acrylic, or Mica effects to Windows Explorer for Windows 10 and 11.
+# 🎨 Mica4U
 
-# NOTICE
-Please note that I am not liable for any damage or harm this application may cause to your system, whether during installation, usage, or any other circumstances.
+A beautiful GUI tool to add background Blur, Acrylic, or Mica effects to Windows Explorer for Windows 10 and 11.
+
+<div align="center">
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/DRKCTRL/Mica4U)](https://github.com/DRKCTRL/Mica4U/releases)
 [![GitHub all releases](https://img.shields.io/github/downloads/DRKCTRL/Mica4U/total)](https://github.com/DRKCTRL/Mica4U/releases)
 [![GitHub issues](https://img.shields.io/github/issues/DRKCTRL/Mica4U)](https://github.com/DRKCTRL/Mica4U/issues)
 
-## Features
-* Multiple effects available:
-  - Acrylic: Blur with noise (Windows 10/11)
-  - Blur: Classic blur (Windows 11 22H2 or earlier)
-  - Blur (Clear): Clean blur without noise (Windows 10/11)
-  - Mica: System-colored background (Windows 11 only)
-  - Mica Alt: Alternative system colors (Windows 11 only)
-* Customizable transparency and colors
-* Light/Dark mode presets
-* Easy-to-use graphical interface
+</div>
 
-## Installation
+## ⚠️ Important Notices
+
+> **Warning**
+> YMMV on Windows 11, Version 24H2 (OS Build 26100.3624) due to changes in the Windows Explorer architecture.
+> However, Mica4U has been verified as working on **Win10 Pro Version 22H2 (OS Build 19045.5608), and Win11 Home Version 24H2 (OS Build 26100.3775)** by both myself and a few trusted friend.
+
+> **Disclaimer**
+> Please note that I am not liable for any damage or harm this application may cause to your system, whether during installation, usage, or any other circumstances.
+
+## ✨ Features
+
+<div align="center">
+
+| Effect | Description | Compatibility |
+|--------|-------------|---------------|
+| Acrylic | Blur with noise | Windows 10/11 |
+| Blur | Classic blur | Windows 10/11 |
+| Blur (Clear) | Clean blur without noise | Windows 11/10 22H2 or earlier |
+| Mica | System-colored background | Windows 11 only |
+| Mica Alt | Alternative system colors | Windows 11 only |
+
+</div>
+
+### Additional Features
+- Customizable transparency and colors
+- Light/Dark mode presets
+- Modern, user-friendly interface with Font Awesome icons
+- Comprehensive settings panel
+- Detailed logging system
+- Portable mode support
+
+## 💻 System Requirements
+- Windows 10 or Windows 11
+- Administrator privileges for installation
+- Compatible with StartAllBack, Rectify11, and other customization software
+
+## 📥 Installation
 
 ### Method 1: Using the Installer (Recommended)
 1. Download the latest installer from the [Releases](https://github.com/DRKCTRL/Mica4U/releases) page
@@ -32,47 +59,60 @@ Please note that I am not liable for any damage or harm this application may cau
 2. Extract the ZIP file to your desired location
 3. Run `Mica4U.exe`
 
-**Note**: Both methods require administrator privileges for installation and usage.
+> **Note**: Both methods require administrator privileges for installation and usage.
 
-## Usage
+## 🎮 Usage
 
 ### Basic Setup
 1. Launch Mica4U
-2. Choose your desired effect:
-   - Acrylic: Blur with noise (Windows 10/11)
-   - Blur: Classic blur (Windows 11 22H2 or earlier)
-   - Blur (Clear): Clean blur without noise (Windows 10/11)
-   - Mica: System-colored background (Windows 11 only)
-   - Mica Alt: Alternative system colors (Windows 11 only)
+2. Choose your desired effect from the options above
 
-### Customization
-1. **Effect Options**:
-   - Clear Address Bar: Makes address bar transparent
-   - Clear Toolbar: Makes toolbar transparent
-   - Clear Background: Makes window background transparent
-   - Show Separator: Shows line between toolbar and content
+### Customization Options
 
-2. **Color Settings**:
-   - Use the color picker to customize background colors
-   - Adjust transparency with the alpha slider
-   - Save custom color combinations as presets
+#### Effect Options
+- Clear Address Bar: Makes address bar transparent
+- Clear Toolbar: Makes toolbar transparent
+- Clear Background: Makes window background transparent
+- Show Separator: Shows line between toolbar and content
 
-3. **Presets**:
-   - Choose from built-in Light/Dark mode presets
-   - Create custom presets for quick switching
-   - Delete unwanted custom presets
+#### Color Settings
+- Adjust RGBA values using sliders, Aswell as the inbuilt ColorPickerDialog
+- Control transparency with alpha channel
+- Real-time color preview
+- Save custom color combinations as presets
+
+#### Presets
+- Built-in Light/Dark mode presets
+- Create and manage custom presets
+- Quick switching between presets
+
+#### Settings
+- **Appearance**:
+  - Theme selection (System/Light/Dark)
+  - Window size customization
+- **Effects**:
+  - Show/hide unsupported effects
+  - Toggle color preview
+- **Advanced**:
+  - Logging level control
+  - Config file location
+- **About**:
+  - Version information
+  - Credits
 
 ### Applying Changes
-1. After adjusting settings, click "Install" to apply changes
+1. After adjusting settings, click the Install button (download icon)
 2. Windows Explorer will restart automatically
 3. Your new settings will take effect immediately
 
-### Troubleshooting
+### 🛠️ Troubleshooting
 - If Explorer crashes, hold the `ESC` key while opening Explorer to bypass the effect
-- Use the "Uninstall" button to remove effects if issues persist
+- Use the Uninstall button (trash icon) to remove effects if issues persist
 - Check the Settings dialog for compatibility options
+- View logs in `%APPDATA%\Mica4U\logs\mica4u.log` for detailed error information
+- For portable mode, logs are stored in the application directory
 
-## Uninstallation
+## 🗑️ Uninstallation
 
 ### Method 1: Using Windows Settings (Recommended)
 1. Open Windows Settings
@@ -82,25 +122,21 @@ Please note that I am not liable for any damage or harm this application may cau
 5. Follow the prompts to complete uninstallation
 
 ### Method 2: Manual Cleanup
-1. Uninstall effects using the "Uninstall" button in Mica4U
+1. Uninstall effects using the Uninstall button in Mica4U
 2. Delete the program files
 3. Delete the configuration folder at `%APPDATA%\Mica4U` (optional)
 
-## Compatibility
-- Windows *10*/11
-- Compatible with StartAllBack, Rectify11, and multitudes of other software
+## 🔨 Building from Source
 
-## Credits
-This project builds upon [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica) by Maplespe, which provides the core functionality for applying visual effects to Windows Explorer. The additional user-friendly graphical interface is powered by PyQt6.
-
-## Building from source
-To compile Mica4U from source, you'll need:
+### Prerequisites
 - Python 3.10 or higher
 - PyQt6
+- qtawesome
 - PyInstaller
 - Inno Setup 6
+- 7-Zip (optional, for better compression of portable version)
 
-### Steps:
+### Quick Build
 1. Clone the repository:
    ```bash
    git clone https://github.com/DRKCTRL/Mica4U.git
@@ -109,7 +145,11 @@ To compile Mica4U from source, you'll need:
 
 2. Install required Python packages:
    ```bash
-   pip install PyQt6 pyinstaller
+   pip install PyQt6 qtawesome pyinstaller
+   ```
+   or
+   ```bash
+   pip install -r requirements.txt
    ```
 
 3. Download and install [Inno Setup 6](https://jrsoftware.org/isdl.php)
@@ -118,19 +158,18 @@ To compile Mica4U from source, you'll need:
    - Double-click `build.cmd`, or
    - Run from command line:
      ```bash
-     build.cmd
+     ./build.cmd
      ```
 
-The build process will:
-1. Clean previous builds (optional)
-2. Create executable using PyInstaller
-3. Create installer using Inno Setup
-4. Output files will be in:
-   - `compiled/dist/` - Standalone executable
-   - `compiled/installer/` - Windows installer
+> **Note**: For improved compression of the portable version, download and install [7-Zip](https://www.7-zip.org/)
+
+### Build Output
+- `compiled/output/` - Standalone executable and installer
+- `compiled/output/Mica4U_portable.zip` - Portable version
 
 ### Manual Compilation
-If you prefer to compile manually:
+
+> **Note**: Manual compilation will not update the version number. Use build.cmd instead to ensure proper versioning.
 
 1. Build executable:
    ```bash
@@ -141,6 +180,3 @@ If you prefer to compile manually:
    ```bash
    "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "compiled\installer.iss"
    ```
-
-This project uses [GNU LGPL v3 license](/LICENSE).
-

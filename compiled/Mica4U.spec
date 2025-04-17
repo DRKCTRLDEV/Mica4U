@@ -5,32 +5,15 @@ block_cipher = None
 a = Analysis(
     ['..\\main.py'],
     pathex=[
-        '..\\',  # Add the root directory
-        '..\\utils',
-        '..\\config',
-        '..\\gui'
+        '..\\',
     ],
     binaries=[],
     datas=[
-        ('..\\ExplorerBlurMica.dll', '.'),
+        ('..\\requirements\\ExplorerBlurMica.dll', 'requirements'),
         ('..\\icon.ico', '.'),
-        ('..\\Initialise.cmd', '.'),
-        ('..\\resources', 'resources'),
-        ('..\\utils', 'utils'),
-        ('..\\config', 'config'),
-        ('..\\gui', 'gui')
+        ('..\\requirements\\Initialise.cmd', 'requirements'),
     ],
-    hiddenimports=[
-        'utils',
-        'utils.logging_config',
-        'utils.system',
-        'config',
-        'config.config_manager',
-        'config.constants',
-        'gui',
-        'gui.widgets',
-        'gui.main_window'
-    ],
+    hiddenimports=[],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -63,5 +46,6 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
     icon='..\\icon.ico',
-    onefile=True
+    onefile=True,
+    uac_admin=True
 )

@@ -1,6 +1,6 @@
 #define MyAppName "Mica4U"
-#define MyAppVersion "1.0"
-#define MyAppPublisher "DRKCTRL"
+#define MyAppVersion "1.6.7"
+#define MyAppPublisher "DRK"
 #define MyAppURL "https://github.com/DRKCTRL/Mica4U"
 #define MyAppExeName "Mica4U.exe"
 
@@ -16,7 +16,7 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 LicenseFile=..\LICENSE
-OutputDir=installer
+OutputDir=output
 OutputBaseFilename=Mica4U_Setup
 SetupIconFile=..\icon.ico
 UninstallDisplayIcon={app}\{#MyAppExeName}
@@ -35,9 +35,11 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
 
 [Files]
-Source: "dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 Source: "..\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\README.md"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\requirements\ExplorerBlurMica.dll"; DestDir: "{userappdata}\Mica4U"; Flags: ignoreversion
+Source: "..\requirements\Initialise.cmd"; DestDir: "{userappdata}\Mica4U"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

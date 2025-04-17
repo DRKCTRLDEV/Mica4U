@@ -12,6 +12,7 @@ __pycache__/
 installer/
 
 # Virtual Environment
+.venv/
 venv/
 env/
 ENV/
@@ -33,6 +34,7 @@ $RECYCLE.BIN/
 *.log
 *.ini
 !config.ini
+!portable.ini
 temp/
 *.tmp
 
@@ -41,3 +43,4 @@ temp/
 compiled/*
 !compiled/Mica4U.spec
 !compiled/installer.iss
+generate_requirements.py
