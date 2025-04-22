@@ -65,11 +65,14 @@ A modern, user-friendly tool to apply Mica, Acrylic, and Blur effects to Windows
 ### Mica4U - General UI
 ![M4UGeneralUI](https://raw.githubusercontent.com/DRKCTRL/Mica4U/main/screenshots/Mica4UGeneral.png)
 
+### Mica4U - ColourPicker UI
+![M4UColourPickerUI](https://raw.githubusercontent.com/DRKCTRL/Mica4U/main/screenshots/Mica4UColourPicker.png)
+
 ### Mica4U - Settings UI
 ![M4USettingsUI](https://raw.githubusercontent.com/DRKCTRL/Mica4U/main/screenshots/Mica4USettings.png)
 
-### Mica4U - ColourPicker UI
-![M4UColourPickerUI](https://raw.githubusercontent.com/DRKCTRL/Mica4U/main/screenshots/Mica4UColourPicker.png)
+### Mica4U - UpdateDialog UI
+![M4UUpdateDialogUI](https://raw.githubusercontent.com/DRKCTRL/Mica4U/main/screenshots/Mica4UUpdateDialog.png)
 
 </details>
 
