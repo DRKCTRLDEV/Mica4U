@@ -9,9 +9,9 @@ a = Analysis(
     ],
     binaries=[],
     datas=[
-        ('..\\requirements\\ExplorerBlurMica.dll', 'requirements'),
+        ('..\\ExplorerBlurMica.dll', '.'),
         ('..\\icon.ico', '.'),
-        ('..\\requirements\\Initialise.cmd', 'requirements'),
+        ('..\\initialise.cmd', '.'),
     ],
     hiddenimports=[],
     hookspath=[],
@@ -46,6 +46,5 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
     icon='..\\icon.ico',
-    onefile=True,
-    uac_admin=True
+    onefile=True
 )

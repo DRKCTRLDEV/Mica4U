@@ -22,7 +22,7 @@ if "%1"=="-v" set "VERBOSE=true"
 if "%1"=="--verbose" set "VERBOSE=true"
 
 :: Build Configuration
-set "BUILD_VERSION=1.6.7"
+set "BUILD_VERSION=1.6.8"
 set "LOG_FILE=build.log"
 set "BUILD_DIR=compiled"
 set "OUTPUT_DIR=%BUILD_DIR%\output"
@@ -139,7 +139,6 @@ if "%VERBOSE%"=="true" (
     echo %MAGENTA%[LOG]%RESET% %CYAN%Creating portable version directories...%RESET%
 )
 if not exist "%OUTPUT_DIR%\portable\Mica4U" mkdir "%OUTPUT_DIR%\portable\Mica4U" 2>> "%CD%\%LOG_FILE%"
-if not exist "%OUTPUT_DIR%\portable\Mica4U\requirements" mkdir "%OUTPUT_DIR%\portable\Mica4U\requirements" 2>> "%CD%\%LOG_FILE%"
 if errorlevel 1 exit /b 1
 
 :: Create portable.ini file
@@ -153,14 +152,14 @@ if "%VERBOSE%"=="true" (
     start /b /wait cmd /c "copy "%DIST_DIR%\Mica4U.exe" "%OUTPUT_DIR%\portable\Mica4U\" 2>> "%CD%\%LOG_FILE%"""
     start /b /wait cmd /c "copy "README.md" "%OUTPUT_DIR%\portable\Mica4U\" 2>> "%CD%\%LOG_FILE%"""
     start /b /wait cmd /c "copy "LICENSE" "%OUTPUT_DIR%\portable\Mica4U\" 2>> "%CD%\%LOG_FILE%"""
-    start /b /wait cmd /c "copy "requirements\ExplorerBlurMica.dll" "%OUTPUT_DIR%\portable\Mica4U\requirements\" 2>> "%CD%\%LOG_FILE%"""
-    start /b /wait cmd /c "copy "requirements\Initialise.cmd" "%OUTPUT_DIR%\portable\Mica4U\requirements\" 2>> "%CD%\%LOG_FILE%"""
+    start /b /wait cmd /c "copy "ExplorerBlurMica.dll" "%OUTPUT_DIR%\portable\Mica4U\" 2>> "%CD%\%LOG_FILE%"""
+    start /b /wait cmd /c "copy "initialise.cmd" "%OUTPUT_DIR%\portable\Mica4U\" 2>> "%CD%\%LOG_FILE%"""
 ) else (
     start /b /wait cmd /c "copy "%DIST_DIR%\Mica4U.exe" "%OUTPUT_DIR%\portable\Mica4U\" >nul 2>> "%CD%\%LOG_FILE%"""
     start /b /wait cmd /c "copy "README.md" "%OUTPUT_DIR%\portable\Mica4U\" >nul 2>> "%CD%\%LOG_FILE%"""
     start /b /wait cmd /c "copy "LICENSE" "%OUTPUT_DIR%\portable\Mica4U\" >nul 2>> "%CD%\%LOG_FILE%"""
-    start /b /wait cmd /c "copy "requirements\ExplorerBlurMica.dll" "%OUTPUT_DIR%\portable\Mica4U\requirements\" >nul 2>> "%CD%\%LOG_FILE%"""
-    start /b /wait cmd /c "copy "requirements\Initialise.cmd" "%OUTPUT_DIR%\portable\Mica4U\requirements\" >nul 2>> "%CD%\%LOG_FILE%"""
+    start /b /wait cmd /c "copy "ExplorerBlurMica.dll" "%OUTPUT_DIR%\portable\Mica4U\" >nul 2>> "%CD%\%LOG_FILE%"""
+    start /b /wait cmd /c "copy "initialise.cmd" "%OUTPUT_DIR%\portable\Mica4U\" >nul 2>> "%CD%\%LOG_FILE%"""
 )
 
 :: Wait for all copy operations to complete

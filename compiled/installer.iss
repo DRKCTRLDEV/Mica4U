@@ -1,5 +1,5 @@
 #define MyAppName "Mica4U"
-#define MyAppVersion "1.6.7"
+#define MyAppVersion "1.6.8"
 #define MyAppPublisher "DRK"
 #define MyAppURL "https://github.com/DRKCTRL/Mica4U"
 #define MyAppExeName "Mica4U.exe"
@@ -38,8 +38,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 Source: "..\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\README.md"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\requirements\ExplorerBlurMica.dll"; DestDir: "{userappdata}\Mica4U"; Flags: ignoreversion
-Source: "..\requirements\Initialise.cmd"; DestDir: "{userappdata}\Mica4U"; Flags: ignoreversion
+Source: "..\ExplorerBlurMica.dll"; DestDir: "{userappdata}\Mica4U"; Flags: ignoreversion
+Source: "..\initialise.cmd"; DestDir: "{userappdata}\Mica4U"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
@@ -54,7 +54,7 @@ Root: HKLM; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{{2B04C
 
 [UninstallRun]
 ; First unregister the DLL
-Filename: "{userappdata}\Mica4U\Initialise.cmd"; Parameters: "uninstall"; RunOnceId: "UnregisterDLL"; Flags: runhidden
+Filename: "{userappdata}\Mica4U\initialise.cmd"; Parameters: "uninstall"; RunOnceId: "UnregisterDLL"; Flags: runhidden
 
 [UninstallDelete]
 Type: files; Name: "{app}\*.*"

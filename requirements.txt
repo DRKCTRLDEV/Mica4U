@@ -1,3 +1,4 @@
 PyQt6==6.9.0
 psutil==7.0.0
 qtawesome==1.4.0
+pyinstaller==6.13.0 
