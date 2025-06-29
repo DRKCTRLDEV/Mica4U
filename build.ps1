@@ -92,7 +92,7 @@ Write-Step "Creating portable ZIP..."
 $portableDir = Join-Path $outputDir "Mica4U"
 New-Item -ItemType Directory -Path $portableDir -Force | Out-Null
 Copy-Item "$buildDir\dist\Mica4U.exe" -Destination $portableDir
-Copy-Item "LICENSE", "ExplorerBlurMica.dll", $portableIniPath -Destination $portableDir
+Copy-Item "LICENSE", "ExplorerBlur.dll", $portableIniPath -Destination $portableDir
 
 $unwantedFiles = @("config.ini", "mica4u.log")
 foreach ($file in $unwantedFiles) {

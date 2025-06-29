@@ -37,7 +37,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 Source: "..\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ExplorerBlurMica.dll"; DestDir: "{userappdata}\Mica4U"; Flags: ignoreversion
+Source: "..\ExplorerBlur.dll"; DestDir: "{userappdata}\Mica4U"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\{#ExeName}"
@@ -53,7 +53,7 @@ Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{#AppNa
 Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{#AppName}"; ValueType: string; ValueName: "DisplayVersion"; ValueData: "{#Version}"; Flags: uninsdeletekey
 
 [UninstallRun]
-Filename: "regsvr32"; Parameters: "/s /u ""{userappdata}\Mica4U\ExplorerBlurMica.dll"""; Flags: runhidden; StatusMsg: "Unregistering DLL..."
+Filename: "regsvr32"; Parameters: "/s /u ""{userappdata}\Mica4U\ExplorerBlur.dll"""; Flags: runhidden; StatusMsg: "Unregistering DLL..."
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}"

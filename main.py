@@ -169,7 +169,7 @@ class ConfigManager:
             self.config_dir = self.base_path
         else:
             self.config_dir = self._setup_appdata_dir("Mica4U")
-        self.dll_path = self.config_dir / "ExplorerBlurMica.dll"
+        self.dll_path = self.config_dir / "ExplorerBlur.dll"
         self.config_path = self.config_dir / "config.ini"
         self.log_path = self.config_dir / "Mica4U.log"
         self.defaults = {
