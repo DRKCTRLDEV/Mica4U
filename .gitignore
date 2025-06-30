@@ -1,46 +1,38 @@
-# Build directories
+# Python build artifacts
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Distribution / packaging
 *.egg
 *.egg-info/
-*.manifest
-*.spec
-!compiled/Mica4U.spec
-installer/
 
 # Virtual Environment
 .venv/
 venv/
 env/
-ENV/
+
+# Compilation and distribution
+*.manifest
+*.spec
+installer/
+build/*
+!build/installer.iss
+!build/Mica4U.spec
 
 # IDE specific files
 .idea/
 .vscode/
-*.swp
-*.swo
 .vs/
+
+# Temporary files
+*.log
+*.ini
+temp/
+*.tmp
 
 # Windows specific
 Thumbs.db
-ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
 # Project specific
-*.log
-*.ini
-!config.ini
-!portable.ini
-temp/
-*.tmp
-
-# Keep compiled directory and its contents
-!compiled/
-compiled/*
-!compiled/Mica4U.spec
-!compiled/installer.iss
-generate_requirements.py
+utils/

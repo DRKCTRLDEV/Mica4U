@@ -1,182 +1,119 @@
-# 🎨 Mica4U
+<p align="center"><img src="assets/Mica4U (Header).png" alt="Mica4U" width="100%"></p>
+<p align="center">
+  <a href="https://www.gnu.org/licenses/lgpl-3.0"><img src="https://img.shields.io/badge/License-LGPL_v3-blue.svg?style=flat-rounded" alt="License: LGPL v3"></a>
+  <a href="https://github.com/DRKCTRLDEV/Mica4U/releases"><img src="https://img.shields.io/github/v/release/DRKCTRLDEV/Mica4U.svg?style=flat-rounded" alt="GitHub release"></a>
+  <a href="https://github.com/DRKCTRLDEV/Mica4U/stars"><img src="https://img.shields.io/github/stars/DRKCTRLDEV/Mica4U.svg?style=flat-rounded" alt="Stars"></a>
+  <a href="https://github.com/DRKCTRLDEV/Mica4U/releases"><img src="https://img.shields.io/github/downloads/DRKCTRLDEV/Mica4U/total.svg?style=flat-rounded" alt="Downloads"></a>
+  <img src="https://img.shields.io/github/last-commit/DRKCTRLDEV/Mica4U?style=flat" alt="Last Commit">
+</p>
+<h3 align=center><u>Efficient & User-Oriented</u> software used to apply Mica, & Acrylic effects to Windows Explorer.</h3>
+<h2 align=center>Overview & Information</h2>
 
-A beautiful GUI tool to add background Blur, Acrylic, or Mica effects to Windows Explorer for Windows 10 and 11.
+> **Notice:** This software is provided "as is" and without warranty of any kind. Use at your own risk  
+> **Support:** This software is actively developed for use with Windows 10, & 11
 
-<div align="center">
+Mica4U is a user-friendly PyQt6-based interface for Maplespe's ExplorerBlurMica project, designed to apply Mica and Acrylic visual effects to Windows Explorer. It offers many features, including a color preset management system, QuickSwitch functionality for real-time modifications, and a sleek, intuitive user interface. As the lightest Explorer theming tool available, Mica4U combines performance with aesthetic appeal. The software benefits from active development, with major updates typically released every one to two weeks and prompt resolution of bugs or issues. Users are encouraged to submit feature requests or report issues via the project's GitHub repository to contribute to its ongoing improvement.
 
-[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/DRKCTRL/Mica4U)](https://github.com/DRKCTRL/Mica4U/releases)
-[![GitHub all releases](https://img.shields.io/github/downloads/DRKCTRL/Mica4U/total)](https://github.com/DRKCTRL/Mica4U/releases)
-[![GitHub issues](https://img.shields.io/github/issues/DRKCTRL/Mica4U)](https://github.com/DRKCTRL/Mica4U/issues)
+### Key Features
+- **Color Preset Management System**: Enables users to create, save, and apply custom color profiles for personalized theming.
+- **QuickSwitch Functionality**: Facilitates real-time toggling of visual effects for immediate customization.
+- **Sleek, Intuitive User Interface**: Provides a modern and accessible design for seamless user interaction.
+- **Lightweight Design**: Ensures minimal system resource usage while delivering robust theming capabilities.
 
-</div>
+### Development and Community
+- **Active Development**: Regular updates, typically every one to two weeks, introduce new features and enhancements.
+- **Prompt Support**: Bugs and issues are addressed swiftly to maintain a reliable user experience.
+- **Community Engagement**: Users are invited to contribute ideas or report issues via the [GitHub repository](https://github.com/DRKCTRLDEV/Mica4U).
 
-## ⚠️ Important Notices
 
-> **Warning**
-> YMMV on Windows 11, Version 24H2 (OS Build 26100.3624) due to changes in the Windows Explorer architecture.
-> However, Mica4U has been verified as working on **Win10 Pro Version 22H2 (OS Build 19045.5608), and Win11 Home Version 24H2 (OS Build 26100.3775)** by both myself and a few trusted friend.
 
-> **Disclaimer**
-> Please note that I am not liable for any damage or harm this application may cause to your system, whether during installation, usage, or any other circumstances.
+<h2 align=center>Screenshots</h2>
+  <img src="assets/screenshots/Explorer/Dark/Acrylic.png">
+  <img src="assets/screenshots/Explorer/Light/Acrylic.png">
+  <div align=center><details>
+    <summary><u>View More Screenshots</u></summary>
+    <img src="assets/screenshots/Explorer/Dark/Mica.png">
+    <img src="assets/screenshots/Explorer/Light/Mica.png">
+    <img src="assets/screenshots/Explorer/Dark/MicaAlt.png">
+    <img src="assets/screenshots/Explorer/Light/MicaAlt.png">
+  </details></div>
 
-## ✨ Features
+<h2 align=center>Planned Updates</h2>
 
-<div align="center">
+- Add support for theming additional Windows components beyond Explorer (e.g., Settings app, other system UI elements, etc..) 
+- Integrate support for Maplespe's ExplorerTool (used to add images to the Explorer UI)
+- Ongoing UI/UX improvements and new color preset features
+- Performance optimizations and bug fixes (Primarily bug fixes until next major update)
 
-| Effect | Description | Compatibility |
-|--------|-------------|---------------|
-| Acrylic | Blur with noise | Windows 10/11 |
-| Blur | Classic blur | Windows 10/11 |
-| Blur (Clear) | Clean blur without noise | Windows 11/10 22H2 or earlier |
-| Mica | System-colored background | Windows 11 only |
-| Mica Alt | Alternative system colors | Windows 11 only |
+<h2 align=center>Install/Uninstall</h2>
 
-</div>
+### Installation
 
-### Additional Features
-- Customizable transparency and colors
-- Light/Dark mode presets
-- Modern, user-friendly interface with Font Awesome icons
-- Comprehensive settings panel
-- Detailed logging system
-- Portable mode support
+1. **Download the Latest Release**
+   - Go to the [Releases page](https://github.com/DRKCTRLDEV/Mica4U/releases) and download the latest `Mica4U` installer (`.exe`).
+2. **Run the Installer**
+   - Double-click the downloaded installer and follow the on-screen instructions.
+   - The installer will automatically place all necessary files and create shortcuts if selected.
+3. **Requirements**
+   - Windows 10 or 11 (64-bit)
+   - No additional dependencies required; all necessary components are bundled.
 
-## 💻 System Requirements
-- Windows 10 or Windows 11
-- Administrator privileges for installation
-- Compatible with StartAllBack, Rectify11, and other customization software
+### Portable Mode
+- You can also use the portable version by extracting the release `.zip` and running `Mica4U.exe` directly. No installation is required.
 
-## 📥 Installation
+### Uninstallation
 
-### Method 1: Using the Installer (Recommended)
-1. Download the latest installer from the [Releases](https://github.com/DRKCTRL/Mica4U/releases) page
-2. Run the installer and follow the prompts
-3. Launch Mica4U from the Start Menu or Desktop shortcut
+- **If Installed via Installer:**
+  1. Open the Windows *Settings* app or *Control Panel*.
+  2. Navigate to *Apps* > *Installed apps* (or *Programs and Features*).
+  3. Find **Mica4U** in the list, select it, and click **Uninstall**.
+  4. Follow the prompts to remove the application.
+- **If Using Portable Version:**
+  - Simply delete the extracted folder to remove all files.
+  - **Important:** Before deleting the portable folder to uninstall, ensure you have unregistered the DLL from within Mica4U (use the  "Uninstall" option). This prevents file locking (inability to delete).
 
-### Method 2: Portable Version
-1. Download the standalone executable from the [Releases](https://github.com/DRKCTRL/Mica4U/releases) page
-2. Extract the ZIP file to your desired location
-3. Run `Mica4U.exe`
+> **Note:** Custom settings and presets are stored in the application's directory or `%APPDATA%/Mica4U`. Delete these folders if you wish to remove all user data. (Or click 'Yes' to cleaning up setttings in the uninstaller)
 
-> **Note**: Both methods require administrator privileges for installation and usage.
-
-## 🎮 Usage
-
-### Basic Setup
-1. Launch Mica4U
-2. Choose your desired effect from the options above
-
-### Customization Options
-
-#### Effect Options
-- Clear Address Bar: Makes address bar transparent
-- Clear Toolbar: Makes toolbar transparent
-- Clear Background: Makes window background transparent
-- Show Separator: Shows line between toolbar and content
-
-#### Color Settings
-- Adjust RGBA values using sliders, Aswell as the inbuilt ColorPickerDialog
-- Control transparency with alpha channel
-- Real-time color preview
-- Save custom color combinations as presets
-
-#### Presets
-- Built-in Light/Dark mode presets
-- Create and manage custom presets
-- Quick switching between presets
-
-#### Settings
-- **Appearance**:
-  - Theme selection (System/Light/Dark)
-  - Window size customization
-- **Effects**:
-  - Show/hide unsupported effects
-  - Toggle color preview
-- **Advanced**:
-  - Logging level control
-  - Config file location
-- **About**:
-  - Version information
-  - Credits
-
-### Applying Changes
-1. After adjusting settings, click the Install button (download icon)
-2. Windows Explorer will restart automatically
-3. Your new settings will take effect immediately
-
-### 🛠️ Troubleshooting
-- If Explorer crashes, hold the `ESC` key while opening Explorer to bypass the effect
-- Use the Uninstall button (trash icon) to remove effects if issues persist
-- Check the Settings dialog for compatibility options
-- View logs in `%APPDATA%\Mica4U\logs\mica4u.log` for detailed error information
-- For portable mode, logs are stored in the application directory
-
-## 🗑️ Uninstallation
-
-### Method 1: Using Windows Settings (Recommended)
-1. Open Windows Settings
-2. Go to Apps > Apps & features
-3. Search for "Mica4U"
-4. Click "Uninstall"
-5. Follow the prompts to complete uninstallation
-
-### Method 2: Manual Cleanup
-1. Uninstall effects using the Uninstall button in Mica4U
-2. Delete the program files
-3. Delete the configuration folder at `%APPDATA%\Mica4U` (optional)
-
-## 🔨 Building from Source
+<h2 align=center>Build From Source</h2>
 
 ### Prerequisites
-- Python 3.10 or higher
-- PyQt6
-- qtawesome
-- PyInstaller
-- Inno Setup 6
-- 7-Zip (optional, for better compression of portable version)
+- **Python 3.12+** ([python.org](https://www.python.org/))
+- **pip** (comes with Python)
+- **PyQt6** and **PyInstaller**
 
-### Quick Build
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/DRKCTRL/Mica4U.git
+### Steps
+1. **Clone the Repository**
+   ```sh
+   git clone https://github.com/DRKCTRLDEV/Mica4U.git
    cd Mica4U
    ```
-
-2. Install required Python packages:
-   ```bash
-   pip install PyQt6 qtawesome pyinstaller
-   ```
-   or
-   ```bash
+2. **Install Dependencies**
+   ```sh
    pip install -r requirements.txt
+   # Or manually:
+   pip install PyQt6 PyInstaller
    ```
+3. **Build the Executable**
+   ```sh
+   ./build.ps1
+   # Or manually:
+   pyinstaller build/Mica4U.spec
+   ```
+   The executable(s) will be in `build/output/`.
+   > **Versioning:** You can specify a version as an argument: `./build.ps1 x.x.x`
 
-3. Download and install [Inno Setup 6](https://jrsoftware.org/isdl.php)
-
-4. Run the build script:
-   - Double-click `build.cmd`, or
-   - Run from command line:
-     ```bash
-     ./build.cmd
+4. **Run the Application**
+   For development, launch `main.py`:
+     ```sh
+     python main.py
      ```
+     > **Note:** To use in this form, you must run as administrator and have a `portable.ini` file in the same directory. You can also build the portable version and substitute `Mica4U.exe` with `main.py`, but this will not auto-elevate.
+   Or run the built executable from `build/output/`.
 
-> **Note**: For improved compression of the portable version, download and install [7-Zip](https://www.7-zip.org/)
+<h2 align=center>License & Credits</h2>
 
-### Build Output
-- `compiled/output/` - Standalone executable and installer
-- `compiled/output/Mica4U_portable.zip` - Portable version
-
-### Manual Compilation
-
-> **Note**: Manual compilation will not update the version number. Use build.cmd instead to ensure proper versioning.
-
-1. Build executable:
-   ```bash
-   pyinstaller compiled/Mica4U.spec
-   ```
-
-2. Create installer:
-   ```bash
-   "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "compiled\installer.iss"
-   ```
+- Licensed under [LGPL v3](https://www.gnu.org/licenses/lgpl-3.0)
+- Constructed with [Python 3.12.0](https://www.python.org/), [PyQt6 6.9.0](https://pypi.org/project/PyQt6/), [PyInstaller 6.13.0](https://pypi.org/project/PyInstaller/), & [InnoSetup 6.4.3](https://jrsoftware.org/)
+- SVG icons provided by [FontAwesome](https://fontawesome.com)
+- Core XAML theming forked from [Maplespe](https://github.com/Maplespe)/[ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica) Project
+- GUI & Automation coded by yours truly, [𝓓𝓡𝓚](https://github.com/DRKCTRLDEV)
