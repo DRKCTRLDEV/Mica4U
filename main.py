@@ -68,12 +68,13 @@ def get_icon(icon_name, color=None):
 
 def check_dll_registered(config):
     try:
-        dll_name = os.path.basename(config.get_dll_path()).lower()
+        dll_path = config.get_dll_path()
+        dll_name = os.path.basename(dll_path).lower()
         result = subprocess.run(
-            'tasklist /M /FI "IMAGENAME eq explorer.exe" /FO CSV /NH',
+            f'reg query "HKCR\\CLSID" /s /f "{dll_name}"',
             capture_output=True, text=True, shell=True
         )
-        return dll_name in result.stdout.lower()
+        return result.returncode == 0 and dll_name in result.stdout.lower()
     except Exception as e:
         log_message("error", f"Error checking DLL status: {e}")
         return False
@@ -117,6 +118,7 @@ class ConfigManager:
             "gui": {"showUnsupported": "false", "last_preset": "Light Mode", "logLevel": "ERROR", "checkForUpdates": "true"},
             "presets": {"Light Mode": {"r": "220", "g": "220", "b": "220", "a": "160"}, "Dark Mode": {"r": "0", "g": "0", "b": "0", "a": "120"}}
         }
+        setup_logger(self.get_log_path(), self.defaults["gui"]["logLevel"])
         self.config = self._load_config()
         self._save_timer = QTimer()
         self._save_timer.setSingleShot(True)
@@ -558,7 +560,6 @@ class MainWindow(QMainWindow):
     def start_background_tasks(self):
         if not self._dll_status_thread:
             self._dll_status_thread = DLLStatusThread(self.config)
-            # Connect the status_updated signal to a slot
             self._dll_status_thread.status_updated.connect(self.handle_dll_status)
             self._dll_status_thread.start()
         check_updates = self.config.get_value(
@@ -674,17 +675,18 @@ class DLLRegistrationThread(QThread):
             self.status.emit(f"DLL not found: {dll_path}", False)
             return
         try:
-            if self.action == "register" and check_dll_registered(self.config):
-                self.status.emit("DLL already registered. Restarting Explorer...", True)
-            else:
-                result = subprocess.run(f'regsvr32 {" /u" if self.action == "unregister" else ""} /s "{dll_path}"', shell=True, capture_output=True, text=True)
-                if result.returncode != 0:
-                    self.status.emit(f"regsvr32 failed: {result.stderr}", False)
-                    return
-            subprocess.run("taskkill /f /im explorer.exe", shell=True)
-            time.sleep(1.5)
-            subprocess.Popen("explorer.exe", shell=True)
-            self.status.emit("Operation successful", True)
+            cmd = f'regsvr32 {" /u" if self.action == "unregister" else ""} /s "{dll_path}"'
+            result = subprocess.run(
+                f'powershell -Command "Start-Process cmd -ArgumentList \'/c {cmd}\' -Verb RunAs"',
+                shell=True, capture_output=True, text=True
+            )
+            if result.returncode != 0:
+                self.status.emit(f"regsvr32 failed: {result.stderr}", False)
+                return
+            subprocess.run("taskkill /f /im explorer.exe", shell=True, capture_output=True)
+            time.sleep(2)
+            subprocess.run("start explorer.exe", shell=True, capture_output=True)
+            self.status.emit(f"DLL {'unregistered' if self.action == 'unregister' else 'registered'} successfully", True)
         except Exception as e:
             self.status.emit(f"Exception: {e}", False)
 
@@ -695,7 +697,7 @@ class DLLStatusThread(QThread):
         super().__init__()
         self.config = config
         self.running = True
-        self.check_interval = 15000
+        self.check_interval = 8192
         self._force_check = False
 
     def run(self):
@@ -724,7 +726,6 @@ def main():
     atexit.register(cleanup_temp)
     app = QApplication(sys.argv)
     config = ConfigManager()
-    setup_logger(config.get_log_path(), config.get_value("gui", "logLevel", "ERROR"))
     window = MainWindow()
     window.setWindowIcon(QIcon(str(Path(__file__).parent / "icon.ico")))
     window.show()
