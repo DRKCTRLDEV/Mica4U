@@ -40,10 +40,10 @@ Mica4U is a user-friendly PyQt6-based interface for Maplespe's ExplorerBlurMica 
 
 <h2 align=center>Planned Updates</h2>
 
-- Add support for theming additional Windows components beyond Explorer (e.g., Settings app, other system UI elements, etc..) 
-- Integrate support for Maplespe's ExplorerTool (used to add images to the Explorer UI)
-- Ongoing UI/UX improvements and new color preset features
-- Performance optimizations and bug fixes (Primarily bug fixes until next major update)
+- [ ] Add support for theming additional Windows components beyond Explorer (e.g., Settings app, other system UI elements, etc..) 
+- [ ] Integrate support for Maplespe's ExplorerTool (used to add images to the Explorer UI)
+- [x] Ongoing UI/UX improvements and new color preset features
+- [ ] Performance optimizations and bug fixes (Primarily bug fixes until next major update)
 
 <h2 align=center>Install/Uninstall</h2>
 
