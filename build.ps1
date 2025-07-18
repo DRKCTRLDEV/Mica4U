@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 Set-Location -Path $PSScriptRoot
 
 # Variables
-$version = if ($args.Count -ge 1) { $args[0] } else { "1.7.1" }
+$version = if ($args.Count -ge 1) { $args[0] } else { "1.7.3" }
 $buildDir = "build"
 
 # Helper: Exit with message if not CI
@@ -75,24 +75,12 @@ $outputDir = Join-Path $buildDir "output"
 Write-Step "Creating output directory..."
 New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
 
-# Create portable.ini
-$portableIniPath = Join-Path $outputDir "portable.ini"
-Write-Step "Creating portable.ini..."
-@"
-[Mica4U]
-Version=$version
-Website=https://github.com/DRKCTRLDEV/Mica4U/
-
-DO NOT DELETE - This file is used to determine if Mica4U is running in portable mode.
-
-"@ | Out-File -FilePath $portableIniPath -Encoding ASCII
-
 # Create portable ZIP
 Write-Step "Creating portable ZIP..."
 $portableDir = Join-Path $outputDir "Mica4U"
 New-Item -ItemType Directory -Path $portableDir -Force | Out-Null
 Copy-Item "$buildDir\dist\Mica4U.exe" -Destination $portableDir
-Copy-Item "LICENSE", "ExplorerBlurMica.dll", $portableIniPath -Destination $portableDir
+Copy-Item "LICENSE", "ExplorerBlurMica.dll" -Destination $portableDir
 
 $unwantedFiles = @("config.ini", "mica4u.log")
 foreach ($file in $unwantedFiles) {
@@ -101,9 +89,9 @@ foreach ($file in $unwantedFiles) {
 }
 Compress-Archive -Path $portableDir -DestinationPath "$outputDir\Mica4U_Portable.zip" -Force || Exit-WithMessage "Failed to create portable ZIP."
 
-# Cleanup portable folder and ini
+# Cleanup portable folder
 Write-Step "Cleaning up temporary portable files..."
-Remove-Item -Recurse -Force $portableDir, $portableIniPath
+Remove-Item -Recurse -Force $portableDir
 
 # Final cleanup (preserve .iss and .spec)
 Write-Step "Final cleanup of build directory..."

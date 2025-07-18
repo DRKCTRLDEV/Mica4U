@@ -1,5 +1,5 @@
 #define AppName "Mica4U"
-#define Version "1.7.2"
+#define Version "1.6.0"
 #define Dev "DRK"
 #define AppURL "https://github.com/DRKCTRLDEV/Mica4U"
 #define ExeName "Mica4U.exe"
