@@ -15,7 +15,7 @@ env/
 *.spec
 installer/
 build/*
-!build/installer.iss
+!build/installer.nsi
 !build/Mica4U.spec
 
 # IDE specific files

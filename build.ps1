@@ -27,7 +27,6 @@ foreach ($cmd in @("py -3", "python3", "python")) {
     try {
         $ver = & $cmd --version 2>&1
         if ($LASTEXITCODE -eq 0 -and $ver -match "Python 3") {
-            # Detect architecture
             $arch = & $cmd -c "import platform; print('x64' if platform.architecture()[0] == '64bit' else 'x86')" 2>&1
             if ($LASTEXITCODE -eq 0) {
                 $pythonCmd = $cmd
@@ -53,10 +52,10 @@ Write-Step "Installing Python dependencies (PyQt6, pyinstaller)..."
 & $pipPath install PyQt6 pyinstaller || Exit-WithMessage "Failed to install Python dependencies."
 
 # Update versions
-Write-Step "Updating version in main.py and installer.iss..."
+Write-Step "Updating version in main.py and installer.nsi..."
 try {
     (Get-Content "main.py") -replace 'VERSION = ".*"', "VERSION = `"$version`"" | Set-Content "main.py"
-    (Get-Content "$buildDir\installer.iss") -replace '#define Version ".*"', "#define Version `"$version`"" | Set-Content "$buildDir\installer.iss"
+    (Get-Content "$buildDir\installer.nsi") -replace '!define APP_VERSION ".*"', "!define APP_VERSION `"$version`"" | Set-Content "$buildDir\installer.nsi"
 } catch {
     Exit-WithMessage "Failed to update version."
 }
@@ -67,8 +66,13 @@ $pyinstallerPath = Join-Path "$buildDir\venv" "Scripts\pyinstaller.exe"
 & $pyinstallerPath "$buildDir\Mica4U.spec" --distpath "$buildDir\dist" --workpath $env:TEMP || Exit-WithMessage "Failed to build executable."
 
 # Build installer
-Write-Step "Building installer with Inno Setup..."
-iscc /O+ "$buildDir\installer.iss" || Exit-WithMessage "Failed to build installer."
+Write-Step "Building installer with NSIS..."
+$makensisPath = "makensis"
+try {
+    & $makensisPath "/O$outputDir\compiler.log" "$buildDir\installer.nsi" || Exit-WithMessage "Failed to build installer."
+} catch {
+    Exit-WithMessage "NSIS (makensis) not found or failed. Ensure NSIS is installed and added to PATH."
+}
 
 # Create output dir
 $outputDir = Join-Path $buildDir "output"
@@ -93,10 +97,10 @@ Compress-Archive -Path $portableDir -DestinationPath "$outputDir\Mica4U_Portable
 Write-Step "Cleaning up temporary portable files..."
 Remove-Item -Recurse -Force $portableDir
 
-# Final cleanup (preserve .iss and .spec)
+# Final cleanup (preserve .nsi and .spec)
 Write-Step "Final cleanup of build directory..."
 Get-ChildItem $buildDir |
-    Where-Object { $_.Name -notlike "*.iss" -and $_.Name -notlike "*.spec" -and $_.Name -ne "output" } |
+    Where-Object { $_.Name -notlike "*.nsi" -and $_.Name -notlike "*.spec" -and $_.Name -ne "output" } |
     Remove-Item -Recurse -Force
 
 Write-Host "[SUCCESS] Build completed successfully." -ForegroundColor Green
