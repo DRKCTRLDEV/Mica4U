@@ -1,0 +1,48 @@
+# GitHub Pages configuration for Mica4U
+title: Mica4U
+description: Efficient & User-Oriented software used to apply Mica & Acrylic effects to Windows Explorer
+url: "https://drkctrldev.github.io"
+baseurl: "/Mica4U"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: null
+
+# Exclude files
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+
+# Include files
+include:
+  - _pages
+
+# SEO and social
+author: DRKCTRLDEV
+twitter:
+  username: drkctrldev
+  card: summary_large_image
+
+social:
+  name: DRKCTRLDEV
+  links:
+    - https://github.com/DRKCTRLDEV
+
+# GitHub metadata
+repository: DRKCTRLDEV/Mica4U
+
+# Analytics (optional - can be configured later)
+# google_analytics: UA-XXXXXXXX-X
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
